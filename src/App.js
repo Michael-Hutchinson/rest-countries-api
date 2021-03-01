@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from './components/Header';
-import Countries from './components/Countries';
+import Api from './components/Api';
 import './styles/style.css';
 
 function App() {
   return (
     <div>
       <Header />
-      <Countries />
+      <Api />
     </div>
   );
 }
