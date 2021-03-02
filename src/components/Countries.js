@@ -18,7 +18,7 @@ function Countries(props) {
       {countries.map((country) => (
         <Country
           name={country.name}
-          population={country.population}
+          population={country.population.toLocaleString()}
           region={country.region}
           capital={country.capital}
           flag={country.flag}
