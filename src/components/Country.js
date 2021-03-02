@@ -1,5 +1,5 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { string, number } from 'prop-types';
 import styled from 'styled-components';
 
 const Tile = styled.div`
@@ -10,7 +10,13 @@ const Tile = styled.div`
 `;
 
 const TextWrapper = styled.div`
-  padding: 1rem 1.5rem 1.5rem;
+  padding: 0rem 1.5rem 1.5rem;
+  h2 {
+    font-size: 16px;
+  }
+  p {
+    font-size: 14px;
+  }
 `;
 
 const Image = styled.img`
@@ -27,7 +33,7 @@ function Country(props) {
       <TextWrapper>
         <h2>{name}</h2>
         <p>
-          <strong>Population:</strong> {population}
+          <strong>Population:</strong> {population.toLocaleString()}
         </p>
         <p>
           <strong>Region:</strong> {region}
@@ -42,7 +48,7 @@ function Country(props) {
 
 Country.propTypes = {
   name: string.isRequired,
-  population: string.isRequired,
+  population: number.isRequired,
   region: string.isRequired,
   capital: string.isRequired,
   flag: string.isRequired,

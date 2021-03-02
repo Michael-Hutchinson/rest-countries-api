@@ -1,5 +1,5 @@
 import React from 'react';
-import { shape } from 'prop-types';
+import { arrayOf, shape, string, number } from 'prop-types';
 import styled from 'styled-components';
 import Country from './Country';
 
@@ -17,8 +17,9 @@ function Countries(props) {
     <Grid>
       {countries.map((country) => (
         <Country
+          key={country.alpha3Code}
           name={country.name}
-          population={country.population.toLocaleString()}
+          population={country.population}
           region={country.region}
           capital={country.capital}
           flag={country.flag}
@@ -29,6 +30,15 @@ function Countries(props) {
 }
 
 Countries.propTypes = {
-  countries: shape.isRequired,
+  countries: arrayOf(
+    shape({
+      name: string,
+      population: number,
+      region: string,
+      capital: string,
+      flag: string,
+    })
+  ).isRequired,
 };
+
 export default Countries;
